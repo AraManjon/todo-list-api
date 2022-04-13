@@ -3,7 +3,7 @@ import httpStatus from 'http-status';
 import { Controller } from './Controller'
 
 export default class StatusGetController implements Controller {
-    run(_req: Request, res: Response) {
+    async run(_req: Request, res: Response) {
         res.sendStatus(httpStatus.OK).send()
     }
 }
