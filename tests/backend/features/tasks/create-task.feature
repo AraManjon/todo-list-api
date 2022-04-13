@@ -7,9 +7,20 @@ Feature: Create a new task
     Given I send a PUT request to "/tasks/taskId" with body:
     """
     {
+        "id": "taskId",
         "name": "Title task",
         "description": "Description of the task"
     }
     """
     Then the response status code should be 201
     And the response should be empty
+
+  Scenario: A invalid non existing task
+    Given I send a PUT request to "/tasks/taskId" with body:
+    """
+    {
+        "name": "Title task",
+        "description": "Description of the task"
+    }
+    """
+    Then the response status code should be 422

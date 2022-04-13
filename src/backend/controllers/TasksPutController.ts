@@ -4,10 +4,10 @@ import { TaskCreator } from "../../tasks/application/TaskCreator";
 import { Controller } from "./Controller";
 
 export default class TasksPutController implements Controller {
-    constructor(private tasksCrator: TaskCreator) {
+    
+    constructor(private tasksCrator: TaskCreator) {}
 
-    }
-    async run(req: Request, res: Response): Promise<void> {
+    async run(req: Request, res: Response) {
         const {id, name, description} = req.body
         
         await this.tasksCrator.run(id, name, description)

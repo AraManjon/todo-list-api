@@ -34,3 +34,5 @@ infrastructure test repository ()
 para poder testear que la funcion de save nos funciona, ahora de momento podemos implementar un repositorio en memoria.
 
 Al hacer el save, necsitamos comprovar si efectivamente hemos guardado la task, para ello podemos hacer una implementacion en este reepossitorio, para hcaer loss test, teniendo en cuenta que en un futuro seguramente necesitaremos un find de la task.
+
+creamos un mock para repeosoitory para no sujetar el test dee task creator a la implementación del repository
