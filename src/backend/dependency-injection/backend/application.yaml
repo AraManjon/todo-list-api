@@ -1,0 +1,9 @@
+services:
+
+  controllers.StatusGetController:
+    class: ../../controllers/StatusGetController
+    arguments: []
+
+  controllers.TasksPutController:
+    class: ../../controllers/TasksPutController
+    arguments: ["@application.TaskCreator"]

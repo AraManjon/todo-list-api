@@ -1,0 +1,8 @@
+services:
+  application.TaskCreator:
+    class: ../../../tasks/application/TaskCreator
+    arguments: ["@infrastructure.TaskRepository"]
+
+  infrastructure.TaskRepository:
+    class: ../../../tasks/infrastructure/InMemoryTaskRepository
+    arguments: []

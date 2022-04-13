@@ -24,3 +24,9 @@ OUTSIDE IN
 test de aceptación con cucumber (black box)
 Desde un punto de vista externo, de coomportamient visible, dede quien utilizará la api (cliente), este cliente va a hacer peticiones hhtp, pero podría ser el caso de que fuera otro servicio quien hace uso...
 
+
+application (integration test)
+validar un side effect
+cuando un metodo retorna void, tiene un side Effect
+para testear esto, necesitatos testear como dos entidades se comunican entre ellas
+

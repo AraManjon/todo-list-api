@@ -4,6 +4,6 @@ import container from "../dependency-injection";
 
 export const register = (router: Router) => {
 
-    const controller : TasksPutController = container.get('tasks.controllers.TasksPutController')
+    const controller : TasksPutController = container.get('controllers.TasksPutController')
     router.put('/tasks/:id', (req: Request, res: Response) => controller.run(req, res))
 }
