@@ -1,13 +1,17 @@
 import { TaskCreator } from "../../../src/tasks/application/TaskCreator"
 import { Task } from "../../../src/tasks/domain/Task"
-import { TaskRepository } from "../../../src/tasks/domain/TaskRespository"
+import { TaskRepositoryMock } from "../__mocks__/TaskRepositoryMock"
 
 describe('TaskCreator', () => {
+    
+    let repository : TaskRepositoryMock;
+
+    beforeEach(()=> {
+        repository = new TaskRepositoryMock()
+    })
+
     it('should create a valid task', async () => {
 
-        const repository: TaskRepository = {
-            save : jest.fn()
-        }
         const creator = new TaskCreator(repository)
         const id = 'id'
         const name = 'name'
@@ -16,6 +20,6 @@ describe('TaskCreator', () => {
 
         await creator.run(id, name, description)
 
-        expect(repository.save).toHaveBeenCalledWith(expectedTask);
+        repository.assertSaveHaveBeenCalled(expectedTask);
     })
 })
