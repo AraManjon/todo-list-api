@@ -1,0 +1,7 @@
+{
+    "cucumberautocomplete.steps": [
+        "test/tasks/backend/features/step_definitions/*.ts",
+        "node_modules/qa-lib/src/step_definitions/*.ts"
+    ],
+    "cucumberautocomplete.strictGherkinCompletion": true
+}

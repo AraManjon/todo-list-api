@@ -1,0 +1,5 @@
+services:
+
+  tasks.controllers.StatusGetController:
+    class: ../controllers/StatusGetController
+    arguments: []
