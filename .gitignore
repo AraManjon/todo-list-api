@@ -2,7 +2,13 @@ node_modules/
 dist/
 .tmp
 .env
-.vscode
 logs/
 data
 test-results.xml
+
+### VisualStudioCode ###
+.vscode/* 
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
