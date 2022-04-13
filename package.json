@@ -8,7 +8,7 @@
     "npm": ">=6.14.0"
   },
   "scripts": {
-    "test": "npm run test",
+    "test": "npm run test:features",
     "test:features": "npm run test:tasks:backend:features",
     "test:tasks:backend:features": "NODE_ENV=test cucumber-js -p tasks_backend",
     "dev": "ts-node-dev --respawn --pretty --transpile-only src/tasks/backend/server.start.ts"
