@@ -11,7 +11,7 @@
     "test": "npm run test:features",
     "test:features": "npm run test:tasks:backend:features",
     "test:tasks:backend:features": "NODE_ENV=test cucumber-js -p tasks_backend",
-    "dev": "ts-node-dev --respawn --pretty --transpile-only src/tasks/backend/server.start.ts"
+    "dev": "ts-node-dev --respawn --pretty --transpile-only src/backend/server.start.ts"
   },
   "author": "ara manjon",
   "license": "ISC",

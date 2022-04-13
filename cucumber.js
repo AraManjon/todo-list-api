@@ -4,8 +4,8 @@ const common = [
 
 const tasks_backend = [
 	...common,
-	'tests/tasks/backend/features/**/*.feature',
-	'--require tests/tasks/backend/features/step_definitions/*.steps.ts'
+	'tests/backend/features/**/*.feature',
+	'--require tests/backend/features/step_definitions/*.steps.ts'
 ].join(' ');
 
 module.exports = {
