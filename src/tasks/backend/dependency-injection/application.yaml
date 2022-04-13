@@ -3,3 +3,7 @@ services:
   tasks.controllers.StatusGetController:
     class: ../controllers/StatusGetController
     arguments: []
+
+  tasks.controllers.TasksPutController:
+    class: ../controllers/TasksPutController
+    arguments: []
