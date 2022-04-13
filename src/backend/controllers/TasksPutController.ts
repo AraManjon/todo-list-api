@@ -3,14 +3,22 @@ import httpStatus from "http-status";
 import { TaskCreator } from "../../tasks/application/TaskCreator";
 import { Controller } from "./Controller";
 
-export default class TasksPutController implements Controller {
-    
-    constructor(private tasksCrator: TaskCreator) {}
+type TaskPutRequest = Request & {
+    body: {
+        id: string,
+        name: string,
+        description: string
+    }
+}
 
-    async run(req: Request, res: Response) {
-        const {id, name, description} = req.body
-        
-        await this.tasksCrator.run(id, name, description)
+export default class TasksPutController implements Controller {
+
+    constructor(private tasksCrator: TaskCreator) { }
+
+    async run(req: TaskPutRequest, res: Response) {
+        const { id, name, description } = req.body
+
+        await this.tasksCrator.run({ id, name, description })
 
         res.status(httpStatus.CREATED).send()
     }

@@ -1,11 +1,17 @@
+import { Uuid } from "../../shared/domain/value-objects/Uuid";
 import { Task } from "../domain/Task";
 import { TaskRepository } from "../domain/TaskRespository";
+import { TaskCreatorRequest } from "./TaskCreatorRequest";
 
 export class TaskCreator {
-    constructor(private repository: TaskRepository) {}
+    private readonly repository
 
-    async run (id: string, name: string, description: string) {
-        const task = new Task(id, name, description)
+    constructor(repository: TaskRepository) {
+        this.repository = repository
+    }
+
+    async run (request : TaskCreatorRequest) {
+        const task = new Task(new Uuid(request.id), request.name, request.description)
         
         return this.repository.save(task)
     }

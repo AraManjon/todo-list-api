@@ -1,3 +1,4 @@
+import { Uuid } from "../../../src/shared/domain/value-objects/Uuid";
 import { Task } from "../../../src/tasks/domain/Task"
 import { InMemoryTaskRepository } from "../../../src/tasks/infrastructure/InMemoryTaskRepository"
 
@@ -11,7 +12,7 @@ describe('InMemoryTaskRespository', () => {
 
     it('should save a task', async () => {
 
-        const expectedTask = new Task('id', 'name', 'description')
+        const expectedTask = new Task(new Uuid('id'), 'name', 'description')
 
         await repository.save(expectedTask)
 

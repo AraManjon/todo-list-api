@@ -1,9 +1,11 @@
-export class Task {
-    private id
-    private name
-    private description
+import { Uuid } from "../../shared/domain/value-objects/Uuid"
 
-    constructor(id: string, name: string, description: string){
+export class Task {
+    private readonly id: Uuid
+    private readonly name: string
+    private readonly description: string
+
+    constructor(id: Uuid, name: string, description: string){
         this.id = id
         this.name = name
         this.description = description
