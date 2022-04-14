@@ -4,10 +4,10 @@ Feature: Create a new task
   I want to create a new task
 
   Scenario: A valid non existing task
-    Given I send a PUT request to "/tasks/taskId" with body:
+    Given I send a PUT request to "/tasks/95ecc380-afe9-11e4-9b6c-751b66dd541e" with body:
     """
     {
-        "id": "taskId",
+        "id": "95ecc380-afe9-11e4-9b6c-751b66dd541e",
         "name": "Title task",
         "description": "Description of the task"
     }
@@ -16,7 +16,7 @@ Feature: Create a new task
     And the response should be empty
 
   Scenario: A invalid non existing task
-    Given I send a PUT request to "/tasks/taskId" with body:
+    Given I send a PUT request to "/tasks/95ecc380-afe9-11e4-9b6c-751b66dd541e" with body:
     """
     {
         "name": "Title task",
@@ -26,20 +26,20 @@ Feature: Create a new task
     Then the response status code should be 422
 
   Scenario: A invalid non existing task
-    Given I send a PUT request to "/tasks/taskId" with body:
+    Given I send a PUT request to "/tasks/95ecc380-afe9-11e4-9b6c-751b66dd541e" with body:
     """
     {
-        "id": "taskId",
+        "id": "95ecc380-afe9-11e4-9b6c-751b66dd541e",
         "description": "Description of the task"
     }
     """
     Then the response status code should be 422
 
   Scenario: A invalid non existing task
-    Given I send a PUT request to "/tasks/taskId" with body:
+    Given I send a PUT request to "/tasks/95ecc380-afe9-11e4-9b6c-751b66dd541e" with body:
     """
     {
-        "id": "taskId",
+        "id": "95ecc380-afe9-11e4-9b6c-751b66dd541e",
         "name": "Title task"
     }
     """

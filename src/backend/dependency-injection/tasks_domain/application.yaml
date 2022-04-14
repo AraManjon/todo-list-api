@@ -10,10 +10,10 @@ services:
       method: 'createClient'
     arguments: ["api", "@MongoConfig"]  
 
-  application.TaskCreator:
+  TaskCreator:
     class: ../../../tasks/application/TaskCreator
-    arguments: ["@infrastructure.TaskRepository"]
+    arguments: ["@TaskRepository"]
 
-  infrastructure.TaskRepository:
+  TaskRepository:
     class: ../../../tasks/infrastructure/MongoTaskRepository
     arguments: ["@ConnectionManager"]

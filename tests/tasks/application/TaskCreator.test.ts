@@ -3,6 +3,7 @@ import { TaskNameNotHasContentException } from '../../../src/tasks/domain/except
 import { TaskRepositoryMock } from "../__mocks__/TaskRepositoryMock"
 import { TaskCreatorRequestMother } from "./TaskCreatorRequestMother";
 import { TaskMother } from "../domain/TaskMother";
+import { InvalidArgumentError } from "../../../src/shared/domain/value-objects/InvalidArgumentError";
 
 describe('TaskCreator', () => {
 
@@ -33,5 +34,16 @@ describe('TaskCreator', () => {
             creator.run(request)
             repository.assertLastSavedTaskIs(task);
           }).toThrow(TaskNameNotHasContentException)
+    })
+
+    it('should throw error if task id is not correct format', async () => {
+
+        expect(() => {
+            const request = TaskCreatorRequestMother.invalidRequestTaskIdFormat()
+            const task = TaskMother.fromRequest(request)
+
+            creator.run(request)
+            repository.assertLastSavedTaskIs(task);
+          }).toThrow(InvalidArgumentError)
     })
 })

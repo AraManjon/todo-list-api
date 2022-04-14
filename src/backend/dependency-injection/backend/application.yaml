@@ -6,4 +6,4 @@ services:
 
   controllers.TasksPutController:
     class: ../../controllers/TasksPutController
-    arguments: ["@application.TaskCreator"]
+    arguments: ["@TaskCreator"]

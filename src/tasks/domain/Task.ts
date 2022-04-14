@@ -28,4 +28,8 @@ export class Task {
             description: this.description.toString()
           };
     }
+
+    static fromPrimitives({ id, name, description }: {id: string, name: string, description: string}): Task {
+        return new Task({id: new TaskId(id), name: new TaskName(name), description: new TaskDescription(description)})
+    }
 }

@@ -10,7 +10,7 @@ export class Uuid {
     }
 
     private validateUuid(id: string): void {
-        if (validate(id)) {
+        if (!validate(id)) {
             throw new InvalidArgumentError(`<${this.constructor.name} does not allow the value ${id}>`)
         }
     }

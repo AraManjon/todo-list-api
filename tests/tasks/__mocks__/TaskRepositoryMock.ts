@@ -15,5 +15,4 @@ export class TaskRepositoryMock implements TaskRepository {
     assertLastSavedTaskIs(expected: Task): void {
         expect(this.saveMock).toHaveBeenCalledWith(expected)
     }
-
 }

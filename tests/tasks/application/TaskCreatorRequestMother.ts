@@ -16,4 +16,8 @@ export class TaskCreatorRequestMother {
     static invalidRequestTaskNameNotContent() : TaskCreatorRequest {
         return { id: TaskIdMother.random().toString(), name: TaskNameMother.invalidTaskNameNotContent(), description: TaskDescriptionMother.random().toString()}
     }
+
+    static invalidRequestTaskIdFormat() : TaskCreatorRequest {
+        return { id: TaskIdMother.invalidIdFormat(), name: TaskNameMother.random().toString(), description: TaskDescriptionMother.random().toString()}
+    }
 }

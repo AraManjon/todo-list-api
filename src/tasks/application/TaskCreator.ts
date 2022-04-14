@@ -14,8 +14,10 @@ export class TaskCreator {
     
     async run(request: TaskCreatorRequest) {
         
-        const task = new Task({ id: new TaskId(request.id), name: new TaskName(request.name), description: new TaskDescription(request.description) })
-
+        const description = new TaskDescription(request.description)
+        const name = new TaskName(request.name)
+        const id = new TaskId(request.id)
+        const task = new Task({ id, name, description })
         await this.repository.save(task)
     }
 }
