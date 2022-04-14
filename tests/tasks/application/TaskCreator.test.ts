@@ -1,9 +1,12 @@
-import { Description } from "../../../src/shared/domain/value-objects/Description";
-import { Name } from "../../../src/shared/domain/value-objects/Name";
-import { Uuid } from "../../../src/shared/domain/value-objects/Uuid";
+import { TaskDescription } from "../../../src/tasks/domain/TaskDescription";
+import { TaskName } from "../../../src/tasks/domain/TaskName";
+import { TaskId } from "../../../src/tasks/domain/TaskId";
 import { TaskCreator } from "../../../src/tasks/application/TaskCreator"
 import { Task } from "../../../src/tasks/domain/Task"
+import { TaskNameNotHasContentException } from '../../../src/tasks/domain/exceptions/TaskNameNotHasContentException';
 import { TaskRepositoryMock } from "../__mocks__/TaskRepositoryMock"
+import { TaskCreatorRequestMother } from "./TaskCreatorRequestMother";
+import { TaskMother } from "../domain/TaskMother";
 
 describe('TaskCreator', () => {
 
@@ -17,13 +20,22 @@ describe('TaskCreator', () => {
 
     it('should create a valid task', async () => {
 
-        const id = new Uuid('id')
-        const name = new Name('name')
-        const description = new Description('description')
-        const expectedTask = new Task(id, name, description)
+        const request = TaskCreatorRequestMother.random()
+        const task = TaskMother.fromRequest(request)
+        
+        await creator.run(request)
 
-        await creator.run({ id: id.value, name: name.value, description: description.value })
+        repository.assertLastSavedTaskIs(task);
+    })
 
-        repository.assertSaveHaveBeenCalled(expectedTask);
+    it('should throw error if task name not has content', async () => {
+
+        expect(() => {
+            const request = TaskCreatorRequestMother.invalidRequestTaskName()
+            const task = TaskMother.fromRequest(request)
+
+            creator.run(request)
+            repository.assertLastSavedTaskIs(task);
+          }).toThrow(TaskNameNotHasContentException)
     })
 })

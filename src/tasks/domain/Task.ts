@@ -1,19 +1,23 @@
-import { Description } from "../../shared/domain/value-objects/Description"
-import { Name } from "../../shared/domain/value-objects/Name"
-import { Uuid } from "../../shared/domain/value-objects/Uuid"
+import { TaskDescription } from "./TaskDescription"
+import { TaskName } from "./TaskName"
+import { TaskId } from "./TaskId"
 
 export class Task {
-    private readonly id: Uuid
-    private readonly name: Name
-    private readonly description: Description
+    private readonly id: TaskId
+    private readonly name: TaskName
+    private readonly description: TaskDescription
 
-    constructor(id: Uuid, name: Name, description: Description){
+    constructor({ id, name, description }: { id: TaskId, name: TaskName, description: TaskDescription }) {
         this.id = id
         this.name = name
         this.description = description
     }
 
-    getId () {
-        return this.id
+    public toEquals({ id, name, description }: { id: TaskId, name: TaskName, description: TaskDescription }): boolean {
+        return (this.id.toEquals(id.toString()) && this.name.toEquals(name.toString()) && this.description.toEquals(description.toString()))
+    }
+
+    public isSameId(id: string): boolean {
+        return id.toString() === id
     }
 }

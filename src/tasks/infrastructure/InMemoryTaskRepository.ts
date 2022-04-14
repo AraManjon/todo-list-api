@@ -10,7 +10,7 @@ export class InMemoryTaskRepository implements TaskRepository {
     }
 
     async find(id: string): Promise<Task | void> {
-        const taskFound = this.inMemory.find(task => task.getId().value === id)
+        const taskFound = this.inMemory.find(task => task.isSameId(id))
         return taskFound;
     }
 }

@@ -36,3 +36,14 @@ para poder testear que la funcion de save nos funciona, ahora de momento podemos
 Al hacer el save, necsitamos comprovar si efectivamente hemos guardado la task, para ello podemos hacer una implementacion en este reepossitorio, para hcaer loss test, teniendo en cuenta que en un futuro seguramente necesitaremos un find de la task.
 
 creamos un mock para repeosoitory para no sujetar el test dee task creator a la implementación del repository
+
+validacion de los parametros de request, para asegurarnos que se llama con los parametros que esperamos, antes llegar a dominio y que esa responsabilidad la teenga el dominio.
+
+value object para hacer el modelado mas rico
+
+
+patron object modether -> genera el valor de forma aleatoria 
+libreeria faker
+
+quitar ruido a los test
+quitaar fragilidad a nuestros test

@@ -18,4 +18,8 @@ export class Uuid {
     public toString(): string {
         return this.value
     }
+
+    public toEquals(expected: string): boolean {
+        return this.value === expected
+    }
 }
