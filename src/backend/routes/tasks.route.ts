@@ -10,6 +10,6 @@ export const register = (router: Router) => {
         body('name').exists().isString(),
         body('description').exists().isString(),
     ]
-    const controller : TasksPutController = container.get('controllers.TasksPutController')
-    router.put('/tasks/:id',reqSchema,validateReqSchema, (req: Request, res: Response) => controller.run(req, res))
+    const controller: TasksPutController = container.get('controllers.TasksPutController')
+    router.put('/tasks/:id', reqSchema, validateReqSchema, (req: Request, res: Response) => controller.run(req, res))
 }

@@ -1,8 +1,19 @@
 services:
+  MongoConfig:
+    factory:
+      class: ../../../shared/infrastructure/presistence/mongo/MongoConfigFactory
+      method: 'createConfig'
+
+  ConnectionManager:
+    factory:
+      class: ../../../shared/infrastructure/presistence/mongo/MongoClientFactory
+      method: 'createClient'
+    arguments: ["api", "@MongoConfig"]  
+
   application.TaskCreator:
     class: ../../../tasks/application/TaskCreator
     arguments: ["@infrastructure.TaskRepository"]
 
   infrastructure.TaskRepository:
-    class: ../../../tasks/infrastructure/InMemoryTaskRepository
-    arguments: []
+    class: ../../../tasks/infrastructure/MongoTaskRepository
+    arguments: ["@ConnectionManager"]

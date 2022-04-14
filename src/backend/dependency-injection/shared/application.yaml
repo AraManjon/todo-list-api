@@ -1,0 +1,4 @@
+services:
+  Logger:
+    class: ../../../shared/infrastructure/WinstonLogger
+    arguments: []

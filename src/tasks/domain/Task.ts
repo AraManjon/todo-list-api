@@ -20,4 +20,12 @@ export class Task {
     public isSameId(id: string): boolean {
         return id.toString() === id
     }
+
+    public toPrimitives(): any {
+        return {
+            id: this.id.toString(),
+            name: this.name.toString(),
+            description: this.description.toString()
+          };
+    }
 }

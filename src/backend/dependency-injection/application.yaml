@@ -1,3 +1,4 @@
 imports:
   - { resource: ./backend/application.yaml }
   - { resource: ./tasks_domain/application.yaml }
+  - { resource: ./shared/application.yaml }

@@ -1,32 +1,39 @@
 
-import express from "express";
+import express, { Request, Response } from 'express';
 import cors from "cors";
 import helmet from "helmet";
+import errorHandler from 'errorhandler';
 import { json, urlencoded } from 'body-parser';
 import * as http from 'http';
+import httpStatus from 'http-status';
+import Router from 'express-promise-router';
+import Logger from '../shared/domain/Logger';
+import container from './dependency-injection';
 import { registerRoutes } from './routes';
 
 export class Server {
     private express: express.Express;
-    private port: string 
+    private port: string
+    private logger: Logger; 
     private httpServer?: http.Server;
 
     constructor(port: string) {
         this.port = port
+        this.logger = container.get('Logger');
         this.express = express()
-        this.configExpress()
-        this.addRoutes()
-    }
-
-    private configExpress () {
         this.express.use(helmet())
         this.express.use(cors())
         this.express.use(json())
         this.express.use(urlencoded({ extended: true }));
-    }
-
-    private addRoutes () {
-      registerRoutes(this.express);
+        const router = Router();
+        router.use(errorHandler());
+        this.express.use(router);
+        registerRoutes(router);
+  
+        router.use((err: Error, req: Request, res: Response, next: Function) => {
+          this.logger.error(err);
+          res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err.message);
+        });
     }
 
     public async listen(): Promise<void> {
