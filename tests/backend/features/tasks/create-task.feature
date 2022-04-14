@@ -24,3 +24,23 @@ Feature: Create a new task
     }
     """
     Then the response status code should be 422
+
+  Scenario: A invalid non existing task
+    Given I send a PUT request to "/tasks/taskId" with body:
+    """
+    {
+        "id": "taskId",
+        "description": "Description of the task"
+    }
+    """
+    Then the response status code should be 422
+
+  Scenario: A invalid non existing task
+    Given I send a PUT request to "/tasks/taskId" with body:
+    """
+    {
+        "id": "taskId",
+        "name": "Title task"
+    }
+    """
+    Then the response status code should be 422
