@@ -4,7 +4,7 @@ import { TaskList } from "../domain/TaskList";
 import { TaskRepository } from "../domain/TaskRespository";
 
 export class MongoTaskRepository implements TaskRepository {
-    
+
     constructor(private readonly client: Promise<MongoClient>) { }
 
     save(task: Task): Promise<void> {
@@ -13,31 +13,30 @@ export class MongoTaskRepository implements TaskRepository {
         return this.persist(agregate.id, task)
     }
 
-    async findAll(): Promise<TaskList> {
-        const taskList = new TaskList()
-        const all = await this.retrieveAll()
+    async searchAll(): Promise<TaskList> {
+        const collection = await this.collection()
 
-        all.forEach(({_id, name, description}) => {
+        const all = collection.find()
+        const taskList = new TaskList()
+
+        await all.forEach((element) => {
+            const { _id, name, description } = element
             const id = _id.toString()
-            taskList.save(Task.fromPrimitives({id, name, description}))
+            const task = Task.fromPrimitives({ id, name, description })
+            taskList.save(task)
+
         });
 
         return taskList
     }
-    
-    private async retrieveAll () {
-        const collection = await this.collection()
-        
-        return collection.find() 
-    }
 
     private async persist(id: string, task: Task): Promise<void> {
         const collection = await this.collection()
-        
+
         const document = { ...task.toPrimitives(), _id: id, id: undefined }
         await collection.updateOne({ _id: id }, { $set: document }, { upsert: true })
     }
-    
+
     protected collectionName(): string {
         return 'tasks'
     }

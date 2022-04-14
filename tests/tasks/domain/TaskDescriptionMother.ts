@@ -10,5 +10,4 @@ export class TaskDescriptionMother {
     static random(): TaskDescription {
         return this.create(WordMother.random())
     }
-
 }

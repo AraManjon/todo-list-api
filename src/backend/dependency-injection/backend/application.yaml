@@ -7,3 +7,7 @@ services:
   controllers.TasksPutController:
     class: ../../controllers/TasksPutController
     arguments: ["@TaskCreator"]
+
+  controllers.TaskListGetController:
+    class: ../../controllers/TaskListGetController
+    arguments: ["@TasksFinder"]

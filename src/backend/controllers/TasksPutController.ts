@@ -13,12 +13,12 @@ type TaskPutRequest = Request & {
 
 export default class TasksPutController implements Controller {
 
-    constructor(private tasksCrator: TaskCreator) { }
+    constructor(private tasksCreator: TaskCreator) { }
 
     async run(req: TaskPutRequest, res: Response) {
         const { id, name, description } = req.body
 
-        await this.tasksCrator.run({ id, name, description })
+        await this.tasksCreator.run({ id, name, description })
 
         res.status(httpStatus.CREATED).send()
     }

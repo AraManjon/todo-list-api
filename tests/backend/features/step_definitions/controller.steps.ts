@@ -25,6 +25,12 @@ Then('the response should be empty', () => {
   assert.deepStrictEqual(_response.body, {});
 });
 
+Then('the response should be:', async response => {
+  const expectedResponse = JSON.parse(response);
+  _response = await _request;
+  assert.deepStrictEqual(_response.body, expectedResponse);
+});
+
 BeforeAll(async () => {
   const environmentArranger: Promise<EnvironmentArranger> = container.get('EnvironmentArranger');
   await (await environmentArranger).arrange();

@@ -19,7 +19,7 @@ describe('TaskCreator', () => {
 
         const request = TaskCreatorRequestMother.random()
         const task = TaskMother.fromRequest(request)
-        
+
         await creator.run(request)
 
         repository.assertLastSavedTaskIs(task);
@@ -33,7 +33,7 @@ describe('TaskCreator', () => {
 
             creator.run(request)
             repository.assertLastSavedTaskIs(task);
-          }).toThrow(TaskNameNotHasContentException)
+        }).toThrow(TaskNameNotHasContentException)
     })
 
     it('should throw error if task id is not correct format', async () => {
@@ -44,6 +44,6 @@ describe('TaskCreator', () => {
 
             creator.run(request)
             repository.assertLastSavedTaskIs(task);
-          }).toThrow(InvalidArgumentError)
+        }).toThrow(InvalidArgumentError)
     })
 })
