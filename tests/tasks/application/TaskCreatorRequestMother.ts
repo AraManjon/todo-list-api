@@ -13,7 +13,7 @@ export class TaskCreatorRequestMother {
     static random (): TaskCreatorRequest {
         return this.create(TaskIdMother.random(), TaskNameMother.random(), TaskDescriptionMother.random())
     }
-    static invalidRequestTaskName() : TaskCreatorRequest {
-        return { id: TaskIdMother.random().toString(), name: TaskNameMother.invalidNotContentTaskName(), description: TaskDescriptionMother.random().toString()}
+    static invalidRequestTaskNameNotContent() : TaskCreatorRequest {
+        return { id: TaskIdMother.random().toString(), name: TaskNameMother.invalidTaskNameNotContent(), description: TaskDescriptionMother.random().toString()}
     }
 }

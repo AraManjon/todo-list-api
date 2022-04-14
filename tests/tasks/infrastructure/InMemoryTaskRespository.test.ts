@@ -3,6 +3,7 @@ import { TaskName } from "../../../src/tasks/domain/TaskName";
 import { TaskId } from "../../../src/tasks/domain/TaskId";
 import { Task } from "../../../src/tasks/domain/Task"
 import { InMemoryTaskRepository } from "../../../src/tasks/infrastructure/InMemoryTaskRepository"
+import { TaskMother } from "../domain/TaskMother";
 
 describe('InMemoryTaskRespository', () => {
 
@@ -14,8 +15,8 @@ describe('InMemoryTaskRespository', () => {
 
     it('should save a task', async () => {
 
-        const expectedTask = new Task({ id: new TaskId('id'), name: new TaskName('name'), description: new TaskDescription('description') })
-
+        const expectedTask = TaskMother.random()
+        
         await repository.save(expectedTask)
 
         const task = await repository.find('id')

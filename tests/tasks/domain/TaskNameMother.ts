@@ -10,7 +10,7 @@ export class TaskNameMother {
         return this.create(WordMother.random())
     }
     
-    static invalidNotContentTaskName(): string {
+    static invalidTaskNameNotContent(): string {
         return ''
     }
 }
