@@ -1,8 +1,8 @@
-# TODO-LIST API 📝
+### TODO-LIST API 📝
 
 La funcionalidad de esta api es crear tareas y motrar un listado de las tareas creadas.
 
-## How to install 🛠
+#### How to install 🛠
 
 > git clone git@github.com:AraManjon/todo-list-api.git
 
@@ -10,7 +10,7 @@ La funcionalidad de esta api es crear tareas y motrar un listado de las tareas c
 
 > npm i
 
-## How to use 💼
+#### How to use 💼
 
 To up server from the terminal
 
@@ -24,14 +24,14 @@ To run test unit and acceptance
 
 > npm run test
 
-## Aims 🏁
+#### Aims 🏁
 
 - Practice builds an application with typescript, Node and mongo, applying concepts of DDD Architecture.
 
 - Use diferents libraries that helps to build an application applying conceepts of clean code.
 
 
-## Project distribution 🗃
+#### Project distribution 🗃
 
 src folder -> production project
 
@@ -43,7 +43,7 @@ shared folder -> content likely to be shared by other domains
 
 tasks folder -> domain folder
 
-## Aproach project solution OUTSIDE IN 🚦
+#### Aproach project solution OUTSIDE IN 🚦
 
 Following a TDD Outside In aproach, the fisrt step of project was:
 
@@ -61,7 +61,7 @@ Following a TDD Outside In aproach, the fisrt step of project was:
 
 - library used -> jest
 
-## Other considerations 🔍
+#### Other considerations 🔍
 
 **SIDE EFFECT**
 
@@ -99,11 +99,11 @@ Remove fragility from our tests.
 
 - library used -> faker
 
-## CI 🚨
+#### CI 🚨
 
 The project is builded with CI with github workflows.
 
-#### // TO-DO
+###### // TO-DO
 
 - Eliminar tareas
 - Editar tareas
