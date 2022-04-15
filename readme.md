@@ -24,6 +24,50 @@ To run test unit and acceptance
 
 > npm run test
 
+#### Endpoints
+
+To create a task and edit an existing task:
+
+##### PUT /tasks/:id
+
+Request:
+``` 
+    body: {
+        "id": string,
+        "name": strirng,
+        "description": string
+    }
+```
+Response:
+
+> 201 CREATE
+> 422 Unprocessable Entity
+
+-------
+
+To get list of tasks:
+
+##### GET /tasks
+
+Response:
+
+> 200 OK
+> Content:
+``` 
+    [ 
+        {
+            "id": string,
+            "name": strirng,
+            "description": string
+        },
+        {
+            "id": string,
+            "name": strirng,
+            "description": string
+        }
+    ]
+```
+
 #### Aims 🏁
 
 - Practice builds an application with typescript, Node and mongo, applying concepts of DDD Architecture.
