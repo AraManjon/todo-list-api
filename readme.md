@@ -63,21 +63,21 @@ Following a TDD Outside In aproach, the fisrt step of project was:
 
 ## Other considerations
 
-- SIDE EFFECT
+**SIDE EFFECT**
 
 When we have a method that return void, it are telling us that this method trigger an effect in other application point.
 
 We need to consider and validatee this behaviour, may be we need to test the comunication beetween two entities. (integration test)
 
-- TEST REPOSITORY
+**TEST REPOSITORY**
 
 When we have a method save, we need to validate that the item that we want to save is now in the db. To validate this, we have two options, validate only the call to save, and the response of this call is that we wait, by the otheer hand,other option can be implement another method, as find, to validate that this item now is in db, if this method we should need in the application, we can consider this option.
 
-- MOCK TEST REPOSITORY
+**MOCK TEST REPOSITORY**
 
 We create a mock for repeosoitory to not subject the test of services to the repository implementation.
 
-- VALIDATE REQUEST PARAMS
+**VALIDATE REQUEST PARAMS**
 
 Validation of the request parameters, to make sure that it is called with the parameters that we expect. Validate before reaching domain and that responsibility does not have the domain.
 
@@ -85,11 +85,11 @@ Ex: If we use the api to create a task and we don't send a mandatory param body,
 
 - library used -> express-validator
 
-- VALUE OBJECTS
+**VALUE OBJECTS**
 
 To make the modeling richer
 
-- OBJECT MOTHER
+**OBJECT MOTHER**
 
 In test, to generate the values needed in test randomly.
 
@@ -103,7 +103,7 @@ Remove fragility from our tests.
 
 The project is builded with CI with github workflows.
 
-## // TO-DO
+#### // TO-DO
 
 - Eliminar tareas
 - Editar tareas
