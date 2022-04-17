@@ -1,24 +1,23 @@
 import { Task } from "../domain/Task";
 import { TaskList } from "../domain/TaskList";
-import { TaskResponse } from "./TaskReponse";
+
+type TaskReponse = {
+    id: string;
+    name: string;
+    description: string;
+}
 
 export class TasksFinderResponse {
-    readonly tasks: TaskResponse[];
 
-    constructor() {
-        this.tasks = []
-    }
-
-    toPlainText(taskList: TaskList) {
+    static create(taskList: TaskList) {
+        const tasks: TaskReponse[] = []
         taskList.iterable().forEach((task: Task) => {
 
-            const {id, name, description} = task.toPrimitives()
+            const taskPlain = task.toPrimitives()
 
-            const taskResponse = new TaskResponse(id, name, description)
-
-            this.tasks.push(taskResponse)
+            tasks.push(taskPlain)
         });
 
-        return this.tasks
+        return tasks
     }
 }

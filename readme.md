@@ -1,6 +1,6 @@
 ### TODO-LIST API 📝
 
-La funcionalidad de esta api es crear tareas y motrar un listado de las tareas creadas.
+The functionality of this api is to create tasks and display a list of the created tasks.
 
 #### How to install 🛠
 

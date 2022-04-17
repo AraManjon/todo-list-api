@@ -9,10 +9,8 @@ export class TasksFinder {
     }
     
     async run() {
-        const all = await this.repository.searchAll()
+        const taskList = await this.repository.searchAll()
         
-        const tasks: TasksFinderResponse = new TasksFinderResponse()
-
-        return tasks.toPlainText(all)
+        return TasksFinderResponse.create(taskList)
     }
 }

@@ -17,7 +17,7 @@ export default class TasksPutController implements Controller {
 
     async run(req: TaskPutRequest, res: Response) {
         const { id, name, description } = req.body
-
+        
         await this.tasksCreator.run({ id, name, description })
 
         res.status(httpStatus.CREATED).send()

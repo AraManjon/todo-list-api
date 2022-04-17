@@ -10,7 +10,6 @@ export default class TaskListGetController implements Controller {
     async run(_req: Request, res: Response) {
 
         const response = await this.tasksFinder.run()
-
         res.header('Access-Control-Allow-Origin', '*');
         res.status(httpStatus.OK).send(response)
     }
